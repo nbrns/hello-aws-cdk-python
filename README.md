@@ -17,3 +17,13 @@ cdk bootstrap
 cdk synth
 cdk deploy
 ```
+
+## Connecting to the EKS cluster
+
+As CDK uses the CloudFormation role to create the cluster, your default AWS user won't get access to the EKS cluster implicitly. Thus, you need to connect to the cluster by assuming the generated masters role.
+You can easily identity it when scanning through your roles as it should look somewhat like <STACK_NAME>-<EKS_NAME>MastersRole<RANDOM_STUFF>.
+
+```bash
+ aws eks --region <REGION> update-kubeconfig --name <CLUSTER_NAME> --role-arn <EKS_MASTERS_ROLE_ARN>
+ kubectl get namespaces
+```
