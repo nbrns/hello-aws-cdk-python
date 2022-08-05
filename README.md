@@ -1,6 +1,6 @@
 # Hello AWS CDK Python
 
-Messing around with AWS CDK for Python.
+Messing around with AWS CDK for Python to deploy an EKS (Managed k8s in AWS).
 
 ## Configure AWS Account
 

@@ -2,7 +2,7 @@ from aws_cdk import (
     Stack,
 )
 from constructs import Construct
-import aws_cdk.aws_s3 as s3
+import aws_cdk.aws_eks as eks
 
 
 class HelloAwsCdkPythonStack(Stack):
@@ -11,4 +11,4 @@ class HelloAwsCdkPythonStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # The code that defines your stack goes here
-        bucket = s3.Bucket(self, "TestS3Bucket", versioned=True)
+        cluster = eks.Cluster(self, "hello-eks", version=eks.KubernetesVersion.V1_21)
